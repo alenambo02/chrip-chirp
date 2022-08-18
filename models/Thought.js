@@ -4,14 +4,24 @@ const {Schema, model } = require('mongoose');
 
 const thoughtSchema = new Schema(
     {
-        thoughtText: { type: String, required: true },
-        createdAt: { type: Date  },
-        username: 
-      
+        thoughtText: { 
+            type: String, 
+            required: true 
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+        },
+        username: {
+            type: String,
+            //the user that created this thought
+            required: true,
+        }
     },
-
+    
 )
 
+//reaction schema here at some point
 
 
 
