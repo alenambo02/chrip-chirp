@@ -13,6 +13,8 @@ const {
     createThought,
     updateThought,
     deleteThought, 
+    createReaction,
+    deleteReaction,
 } = require('../../controllers/thoughtController');
 
 //gets thoughts and posts thoughts
@@ -26,6 +28,8 @@ router
 
 router
     .route('/:thoughtId/reactions')
+    .post(createReaction)
+    .delete(deleteReaction);
 
 
 
