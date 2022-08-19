@@ -1,4 +1,6 @@
 const User = require('../models/User');
+const Thought = require('../models/Thought');
+
 
 module.exports = {
     // gets all user
@@ -36,9 +38,20 @@ module.exports = {
 
     //updates a user 
     updateUser(req, res){
-        const filter = { _id: req.params.userId };
-        const update = { $addToSet: { friends: req.params.friendId} };
-        User.findOneAndUpdate(filter, update)
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $set: req.body },
+            { runValidators: true, new: true }
+        )
+        .then((user) => 
+        !user
+            ? res.status(404).json({ message: 'No user found with this ID' })
+            : res.json(user)
+        )
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
     },
 
     //deletes a user and its thoughts 
