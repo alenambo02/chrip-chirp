@@ -4,6 +4,7 @@ A social-media-platform
 To view this application in action, feel free to visit the link below:
 https://drive.google.com/file/d/14uLmusN8GFKrucZsxmGUGAx7Grj0nK5v/view
 
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   #Table of Content
@@ -32,6 +33,9 @@ https://drive.google.com/file/d/14uLmusN8GFKrucZsxmGUGAx7Grj0nK5v/view
     - Express ---> npm i express
     - Mongoose ---> npm i mongoose
 
+  In order to view how a user can add a friend or delete a friend from their friend list view the gif below:
+  ![alt text](./images/friend%20route%20gif.gif)
+
   Below, I have displayed how a schema is create for the models:
   ![alt text](./images/thought%20schema.png)
 
@@ -51,7 +55,7 @@ https://drive.google.com/file/d/14uLmusN8GFKrucZsxmGUGAx7Grj0nK5v/view
 
   Below I have include an image of the API route that allows you to delete a reaction that you published on a users thought:
   I personally found this route intresting because instead of finding a thought a removing it you actually want to update it because you do not want to remove the whole thought, you only want to remove a single reaction made on the thought.
-  
+
   ![alt text](./images/delete%20reaction.png)
 
 

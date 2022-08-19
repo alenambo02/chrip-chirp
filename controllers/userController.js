@@ -68,28 +68,6 @@ module.exports = {
 
 
 
-
-
-// bouns friend route
-//     async addFriendToUser(req, res) {
-
-//         try {
-//             const user = User.findOne({ _id: req.param.userId })
-//             const userFriends = [
-//                 ...user.friends,
-//                 req.param.friendId
-//             ]
-//             //overriding the fields 
-//             user.friends = userFriends
-//             const updatedUser = await user.save();
-//             res.json(updatedUser)
-//         } catch (err) {
-//             res.status(500).json(err);
-//         }
-//     },
-
-
-
 addFriendToUser(req, res){
     console.log('your adding a friend')
     User.findOneAndUpdate(
