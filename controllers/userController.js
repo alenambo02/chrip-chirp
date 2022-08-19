@@ -71,21 +71,56 @@ module.exports = {
 
 
 // bouns friend route
-    async addFriendToUser(req, res) {
+//     async addFriendToUser(req, res) {
 
-        try {
-            const user = User.findOne({ _id: req.param.userId })
-            const userFriends = [
-                ...user.friends,
-                req.param.friendId
-            ]
-            //overriding the fields 
-            user.friends = userFriends
-            const updatedUser = await user.save();
-            res.json(updatedUser)
-        } catch (err) {
-            res.status(500).json(err);
-        }
+//         try {
+//             const user = User.findOne({ _id: req.param.userId })
+//             const userFriends = [
+//                 ...user.friends,
+//                 req.param.friendId
+//             ]
+//             //overriding the fields 
+//             user.friends = userFriends
+//             const updatedUser = await user.save();
+//             res.json(updatedUser)
+//         } catch (err) {
+//             res.status(500).json(err);
+//         }
+//     },
+
+
+
+addFriendToUser(req, res){
+    console.log('your adding a friend')
+    User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { friends: req.params.friendId } },
+        { runValidators: true, new: true }
+      )
+        .then((user) =>
+          !user
+            ? res.status(404)
+            .json({ message: 'Oh no, the friend with this ID was not found!' })
+            : res.json(user)
+        )
+        .catch((err) => res.status(500).json(err));
     },
+
+
+    deleteFriendFromUser(req, res){
+        console.log('friendship has ended')
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $pull: { friends: req.params.friendId } },
+            { runValidators: true, new: true }
+            )
+            .then((user) =>
+                !user
+                ? res.status(404)
+                .json({ message: 'Yikes, the friend with this ID was not found!' })
+                : res.json(user)
+            )
+            .catch((err) => res.status(500).json(err));
+        },
 
 };

@@ -14,7 +14,7 @@ const {
     updateUser,
     deleteUser, 
     addFriendToUser,
-    // deleteFriendFromUser,
+    deleteFriendFromUser,
 } = require('../../controllers/userController');
 
 //this is combining the get and post route for user
@@ -31,6 +31,6 @@ router
 router
 .route('/:userId/friends/:friendId')
 .post(addFriendToUser)
-// .delete(deleteFriendFromUser)
+.delete(deleteFriendFromUser)
 
 module.exports = router;
