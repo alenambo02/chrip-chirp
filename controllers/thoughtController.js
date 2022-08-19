@@ -85,7 +85,9 @@ module.exports = {
 
 // /api/thoughts/:thoughtId/reactions
 
+
     createReaction(req, res){
+        console.log('your adding a reaction')
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $addToSet: { reactions: req.body } },
@@ -93,7 +95,8 @@ module.exports = {
           )
             .then((thought) =>
               !thought
-                ? res.status(404).json({ message: 'Oh no, the thought with this ID was not found!' })
+                ? res.status(404)
+                .json({ message: 'Oh no, the thought with this ID was not found!' })
                 : res.json(thought)
             )
             .catch((err) => res.status(500).json(err));
@@ -101,6 +104,7 @@ module.exports = {
 
 
     deleteReaction(req, res){
+        console.log('your deleting an reaction')
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $pull: { reactions: { reactionId: req.params.reactionId } } },
@@ -108,7 +112,8 @@ module.exports = {
             )
             .then((thought) =>
                 !thought
-                ? res.status(404).json({ message: 'Ayyyy your reaction was deleted, dont sweat it.' })
+                ? res.status(404)
+                .json({ message: 'Ayyyy your reaction was deleted, dont sweat it.' })
                 : res.json(thought)
             )
             .catch((err) => res.status(500).json(err));

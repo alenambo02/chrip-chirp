@@ -1,6 +1,6 @@
 //NOTE: reaction schema will be a subdocument schema in the Thought model.
 
-const {Schema, model } = require('mongoose');
+const {Schema, model, Types } = require('mongoose');
 
 //reaction schema here at some point
 const reactionSchema = new Schema(
@@ -22,7 +22,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-           
+            get: (timestamp) => new Date(timestamp).toLocaleString()
         },
     },
     {
@@ -46,7 +46,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            // : timestamp 
+            get: (timestamp) => new Date(timestamp).toLocaleString()
         },
         //the user that created this thought
         username: {
