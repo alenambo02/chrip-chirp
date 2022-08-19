@@ -2,6 +2,7 @@
 
 const {Schema, model } = require('mongoose');
 
+//reaction schema here at some point
 const reactionSchema = new Schema(
     {
         reactionId: {
@@ -21,18 +22,19 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            getter: true, 
+           
         },
     },
     {
         toJSON: {
+            getters: true,
             virtuals: true,
         },
         id: false
     }
 );
 
-
+//thought schema 
 const thoughtSchema = new Schema(
     {
         thoughtText: { 
@@ -44,7 +46,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            // : timestamp,
+            // : timestamp 
         },
         //the user that created this thought
         username: {
@@ -55,6 +57,7 @@ const thoughtSchema = new Schema(
     },
     {
         toJSON: {
+            getters: true,
             virtuals: true,
         },
         id: false
@@ -62,7 +65,7 @@ const thoughtSchema = new Schema(
 
 );
 
-//reaction schema here at some point
+
 
 
 
