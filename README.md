@@ -41,14 +41,17 @@ https://drive.google.com/file/d/14uLmusN8GFKrucZsxmGUGAx7Grj0nK5v/view
 
   ![alt text](./images/reaction%20schema.png)
 
+  Below I have include an image of the API route that allows you to update a thought:
 
   ![alt text](./images/update%20thought.png)
 
+  Below I have include an image of the API route that allows you to delete a thought:
 
   ![alt text](./images/delete%20thought.png )
 
- 
-
+  Below I have include an image of the API route that allows you to delete a reaction that you published on a users thought:
+  I personally found this route intresting because instead of finding a thought a removing it you actually want to update it because you do not want to remove the whole thought, you only want to remove a single reaction made on the thought.
+  
   ![alt text](./images/delete%20reaction.png)
 
 
