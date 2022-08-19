@@ -1,6 +1,9 @@
 # chrip-chirp
 A social-media-platform
 
+To view this application in action, feel free to visit the link below:
+https://drive.google.com/file/d/14uLmusN8GFKrucZsxmGUGAx7Grj0nK5v/view
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   #Table of Content
